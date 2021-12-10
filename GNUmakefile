@@ -95,9 +95,10 @@ define CHECK_CFLAGS_gcc
 CFLAGS_gcc += $$(if $$(shell if $$(COMPILER_gcc) $(1) -x c -o compile-check.gcc-o -c - < /dev/null > /dev/null 2>&1; then echo yes; else :; fi; rm -f compile-check.gcc-o > /dev/null 2>&1),$(1))
 endef
 
-COMPILER_gcc = gcc
-LINKER_gcc = gcc
-CPPFLAGS_gcc =
+COMPILER_gcc = arm-poky-linux-gnueabi-gcc  -march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=/opt/poky/2.2/sysroots/cortexa9hf-neon-poky-linux-gnueabi
+LINKER_gcc = arm-poky-linux-gnueabi-gcc  -march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=/opt/poky/2.2/sysroots/cortexa9hf-neon-poky-linux-gnueabi
+#COMPILER_gcc = gcc
+#LINKER_gcc = gcc
 CFLAGS_gcc =
 CFLAGS_gcc += -std=gnu99 -pedantic
 CFLAGS_gcc += -O -g
@@ -168,6 +169,7 @@ beep_OBJS += beep-drivers.o
 
 beep_OBJS += beep-driver-console.o
 beep_OBJS += beep-driver-evdev.o
+beep_OBJS += beep-driver-sysfs.o
 ifneq ($(BEEP_DEBUG_BUILD),)
 beep_OBJS += beep-driver-noop.o
 endif

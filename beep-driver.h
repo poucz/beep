@@ -104,6 +104,7 @@ struct _beep_driver {
 
     /** device file name for this driver */
     const char *device_name;
+    int         device_fd2;
 };
 
 

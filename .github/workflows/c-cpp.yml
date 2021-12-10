@@ -1,6 +1,6 @@
 name: C/C++ CI
 
-runs-on: [self-hosted]
+
 
 on:
   push:
@@ -11,7 +11,8 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: [self-hosted]
 
     steps:
     - uses: actions/checkout@v2

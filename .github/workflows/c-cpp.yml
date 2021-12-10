@@ -2,7 +2,7 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master ]
+    branches: *
   pull_request:
     branches: [ master ]
 
@@ -17,5 +17,3 @@ jobs:
       run: make
     - name: make check
       run: make check
-    - name: make distcheck
-      run: make distcheck

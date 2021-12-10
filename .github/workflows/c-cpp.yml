@@ -1,5 +1,7 @@
 name: C/C++ CI
 
+runs-on: [self-hosted]
+
 on:
   push:
     branches: [ master, test_CI, SYS_PWM_beep ]

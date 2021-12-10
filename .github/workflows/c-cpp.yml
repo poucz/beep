@@ -2,7 +2,7 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master, test_CI ]
+    branches: [ master, test_CI, SYS_PWM_beep ]
   pull_request:
     branches: [ master ]
 
